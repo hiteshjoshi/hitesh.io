@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  html, body {
+    @apply h-full;
+  }
+
+  h1 {
+    @apply mt-5 mb-5;
+  }
+
+  p{
+		font-family: 'Radley', serif;
+	}
+
+  a:hover {
+    @apply no-underline;
+  }
+
+  .row {
+    @apply ml-0 mr-0;
+  }
+
+  .header-block {
+    @apply w-1/2 mx-auto border-b border-gray-300;
+  }
+
+  .header-block a {
+    @apply text-gray-800;
+  }
+
+  .header-block a:hover {
+    @apply text-gray-800;
+  }
+
+  .blog-title h1 {
+    @apply text-center text-8xl mt-7 font-bold;
+  }
+
+  .square {
+    @apply text-right mt-4 text-3xl;
+  }
+
+  .hero-description h1 {
+    @apply text-5xl;
+  }
+
+  .post-list {
+    @apply w-2/5 mx-auto pt-10 pb-10;
+  }
+
+  .post-list a:hover {
+    @apply border-b-2 border-gray-600 text-gray-600 no-underline;
+  }
+
+  .post-content {
+    @apply px-5 pt-10 pb-5;
+  }
+
+  .post-content h1 {
+    @apply mb-1;
+  }
+
+  .post-data img {
+    @apply min-w-auto block mx-auto max-w-full;
+  }
+
+  .author-img {
+    @apply w-11 h-11;
+  }
+
+  .footer a:hover {
+    @apply border-b border-gray-300 text-gray-300 no-underline;
+  }
+
+  .navibar a:hover {
+    @apply border-b border-gray-300 text-gray-300 no-underline;
+  }
+
+  .post-titles h1 {
+    @apply text-3xl inline leading-10;
+  }
+
+  .post-page-title {
+    @apply leading-11 text-center;
+  }
+
+  .dates {
+    @apply text-gray-600 text-lg italic;
+  }
+
+  .error-page {
+    @apply text-8xl text-center;
+  }
+
+  .righted {
+    @apply text-right;
+  }
+
+  .paddd {
+    @apply pl-0 pr-0;
+  }
+
+  .pagination-wrapper a:hover {
+    @apply text-gray-600 no-underline;
+  }
+
+  .footer {
+    @apply w-1/2 mx-auto border-t border-gray-300 text-center text-lg;
+  }
+
+  .footer h3 {
+    @apply font-bold pb-2 uppercase text-xl;
+  }
+
+  .navibar {
+    @apply w-full mx-auto text-center text-lg;
+  }
+
+  .description {
+    @apply block mx-auto w-1/2 pb-2;
+  }
+
+  .copyright {
+    @apply w-1/2 mx-auto text-center pb-5;
+  }
+
+  @screen sm {
+    .header-block, .post-list, .footer, .copyright {
+      @apply w-4/5;
+    }
+  }
+}
