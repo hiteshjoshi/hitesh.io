@@ -21,14 +21,19 @@ const { Content } = await post.render();
 <Layout {...post.data}>
   <div class="space-y-6 w-1/2 content-center mx-auto">
     <div class="text-justify">
-      <h2 class="text-2xl font-semibold">{post.data.title}</h2>
-      <span class="text-gray-500 text-right text-xs"
-        ><FormattedDate
-          date={post.data.updatedDate || post.data.pubDate}
-        /></span
-      >
-      <div class="my-5">
-        <Content />
+      <div class="my-5 content">
+        <!-- dark:prose-invert  -->
+        <div
+          class="prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl"
+        >
+          <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
+          <span class="text-gray-500 text-right text-xs"
+            ><FormattedDate
+              date={post.data.updatedDate || post.data.pubDate}
+            /></span
+          >
+          <Content />
+        </div>
       </div>
     </div>
   </div>

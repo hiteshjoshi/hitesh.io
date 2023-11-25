@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
+import LogoSvg from "../components/LogoSvg.astro";
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
@@ -9,15 +10,17 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout>
   <!-- Title section -->
-  <div class="text-center py-10">
-    <h1 class="text-5xl font-bold font-coder">move.</h1>
+  <div class="py-20 flex items-center justify-center">
+    <LogoSvg/>
   </div>
 
   <!-- Posts section -->
-  <div class="space-y-6 w-96 content-center mx-auto">
+  <div class="flex flex-col items-center justify-center">
+    <div class="text-justify">
+    
     {
       posts.map((post) => (
-        <div class="text-justify">
+      <div class="py-4">
           <a href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
           <span class="text-gray-500 text-right text-xs">
             <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
@@ -25,6 +28,7 @@ const posts = (await getCollection("blog")).sort(
         </div>
       ))
     }
+  </div>
   </div>
 
   <!-- Down arrow -->
