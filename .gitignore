@@ -19,4 +19,4 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
-./src/styles/dist.css
+./src/styles/global.css
