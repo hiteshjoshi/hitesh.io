@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build:tailwind":"tailwindcss -i ./src/styles/global.css -o ./src/styles/dist.css ",
+    "build:tailwind":"tailwindcss -i ./src/styles/global.css -o ./src/styles/dist.css --minify",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
