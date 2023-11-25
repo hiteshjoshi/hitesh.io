@@ -1,7 +1,7 @@
 ---
 title: 'Hello world'
 description: 'Hello world'
-pubDate: 'Nov 25 2023 2:57pm'
+pubDate: 'Nov 25 2023 14:57'
 ---
 
 This is a hello world post. I accidently deleted my ghost blog on railway.app!
