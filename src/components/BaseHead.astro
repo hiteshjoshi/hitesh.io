@@ -46,3 +46,8 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<style>
+  .hidden {
+    display: none;
+  }
+</style>
