@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <Layout>
@@ -10,30 +15,16 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Posts section -->
   <div class="space-y-6 w-96 content-center mx-auto">
-    <div class="text-justify">
-      <h2 class="text-2xl font-semibold">Rolling asdf asdf oasdfasdfkl</h2>
-      <span class="text-gray-500 text-right text-xs">June 22 2017 at 23:12</span
-      >
-    </div>
-    <div class="text-justify">
-      <h2 class="text-2xl font-semibold">Introduce</h2>
-      <span class="text-gray-500 text-xs ml-1">June 10 2016</span>
-    </div>
-    <div class="text-justify">
-      <h2 class="text-2xl font-semibold">Largescale</h2><span
-        class="text-gray-500 text-xs ml-1">June 01 2016</span
-      >
-    </div>
-    <div class="text-justify">
-      <h2 class="text-2xl font-semibold">Styling</h2><span
-        class="text-gray-500 text-xs ml-1">June 01 2016</span
-      >
-    </div>
-    <div class="text-justify">
-      <h2 class="text-2xl font-semibold">Beginning</h2><span
-        class="text-gray-500 text-xs ml-1">June 01 2016</span
-      >
-    </div>
+    {
+      posts.map((post) => (
+        <div class="text-justify">
+          <a href=`/${post.slug}`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
+          <span class="text-gray-500 text-right text-xs">
+            <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
+          </span>
+        </div>
+      ))
+    }
   </div>
 
   <!-- Down arrow -->
