@@ -1,3 +1,7 @@
+---
+import Footer from "./Footer.astro";
+---
+
 <div class="flex max-w-full pl-10">
   <div class="w-full">
     <div class="flex items-start justify-between pb-1">
@@ -43,7 +47,7 @@
     </div>
     <div
       x-show="slideOverOpen"
-      @mouse.away="slideOverOpen = false"
+      @mouseleave="setTimeout(function() {slideOverOpen=false;}, 800)"
       x-transition:enter="transform transition ease-in-out delay-50 duration-100 sm:duration-100"
       x-transition:enter-start="translate-x-full"
       x-transition:enter-end="translate-x-0"
@@ -51,22 +55,22 @@
       x-transition:leave-start="translate-x-0"
       x-transition:leave-end="translate-x-full"
       class="fixed inset-y-0 right-0 xl:w-[20%] w-1/2 md:w-1/2 sm:w-full flex flex-col h-full py-5 overflow-y-scroll bg-white border-l border-gray-200"
+      style="display:none;"
     >
-      <div class="px-4 sm:px-5 mt-10 font-semibold">about the blog</div>
+      <div class="px-4 sm:px-5 mt-10 font-semibold font-mono">about</div>
       <div class="relative flex-1 px-4 mt-5 sm:px-5">
         <div class="absolute inset-0 px-4 sm:px-5">
           <div
             class="relative h-full overflow-hidden rounded-md border-neutral-300"
           >
-            This is my personal space on the internet to write some of my ideas,
-            learnings and stories about my life and startup <span
+            Welcome to <span class="font-coder text-xl">move</span>. ,this is
+            where I jot down my random thoughts, cool stuff I'm learning, and
+            tales from my startup life. Always up for a good chat and a laugh. <span
               class="text-blue-800"
               ><a href="https://ploton.dev">@plotondev</a></span
             ><br />
-            <span class="font-mono text-xs"
-              >- Hitesh Joshi, CEO | Ploton, Inc.</span
-            >
-            <div>Twitter</div>
+            <span class="text-xs">- - Hitesh Joshi, CEO | Ploton, Inc.</span>
+            <div><Footer /></div>
           </div>
         </div>
       </div>

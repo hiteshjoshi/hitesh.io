@@ -1,0 +1,36 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Logo from "../components/Logo.astro";
+import Navigation from "../components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+const isHomePage = Astro.url.pathname.split("/")[0] !== "";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body
+    x-data="{slideOverOpen: false }"
+    class="bg-white text-gray-800 antialiased"
+  >
+    <div class="flex">
+        {isHomePage?<Logo />:<></>}
+        <Navigation />
+    </div>
+
+    <!-- Main container -->
+    <div
+      class="container mx-auto px-4 py"
+      
+    >
+      <slot />
+      <!-- Down arrow -->
+      <!-- <div class="text-center py-10">
+        <div class="text-3xl">&darr;</div>
+      </div>
+	   -->
+    </div>
+  </body>
+</html>
