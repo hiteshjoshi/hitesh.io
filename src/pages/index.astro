@@ -7,36 +7,6 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
-
-<Layout>
-  <!-- Title section -->
-  <div class="py-10 flex items-center justify-center">
-    <LogoSvg/>
-  </div>
-
-  <!-- Posts section -->
-  <div class="flex flex-col items-center justify-center">
-    <div class="text-justify">
-    
-    {
-      posts.map((post) => (
-      <div class="py-4">
-          <a href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
-          <span class="text-gray-500 text-right text-xs">
-            <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
-          </span>
-        </div>
-      ))
-    }
-  </div>
-  </div>
-
-  <!-- Down arrow -->
-  <!-- <div class="text-center py-10">
-        <div class="text-3xl">&darr;</div>
-      </div>
-	   -->
-</Layout>
 <style>
   *,:before,:after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb;}
 :before,:after{--tw-content:"";}
@@ -151,3 +121,32 @@ img{max-width:100%;height:auto;}
 .xl\:w-\[20\%\]{width:20%;}
 }
 </style>
+<Layout>
+  <!-- Title section -->
+  <div class="py-10 flex items-center justify-center">
+    <LogoSvg/>
+  </div>
+
+  <!-- Posts section -->
+  <div class="flex flex-col items-center justify-center">
+    <div class="text-justify">
+    
+    {
+      posts.map((post) => (
+      <div class="py-4">
+          <a href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
+          <span class="text-gray-500 text-right text-xs">
+            <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
+          </span>
+        </div>
+      ))
+    }
+  </div>
+  </div>
+
+  <!-- Down arrow -->
+  <!-- <div class="text-center py-10">
+        <div class="text-3xl">&darr;</div>
+      </div>
+	   -->
+</Layout>
