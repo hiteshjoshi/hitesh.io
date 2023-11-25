@@ -7,6 +7,6 @@ import compress from "astro-compress";
 
 let config = {
   site: 'https://hitesh.io',
-  integrations: [mdx(), sitemap(), tailwind(), compress()]
+  integrations: [mdx(), sitemap(), alpinejs(), tailwind()]
 }
 export default defineConfig(config);
