@@ -41,4 +41,65 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-<link rel="stylesheet" href="/global.css" />
+<style>
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+  @media (min-width: 640px) {
+    .sm\:w-full {
+      width: 100%;
+    }
+
+    .sm\:px-5 {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .sm\:duration-100 {
+      transition-duration: 0.1s;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:w-1\/3 {
+      width: 33.333333%;
+    }
+
+    .md\:py-0 {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:w-\[20\%\] {
+      width: 20%;
+    }
+  }
+</style>
