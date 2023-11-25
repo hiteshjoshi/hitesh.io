@@ -12,7 +12,8 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body
-    x-data="{slideOverOpen: false }"
+    x-init="setTimeout(() => show = true, 100)" :class="{ 'opacity-0': !show, 'opacity-100 transition-opacity duration-1000': show }" 
+    x-data="{slideOverOpen: false,show: false }"
     class="bg-white text-gray-800 antialiased"
   >
     <div class="flex">
