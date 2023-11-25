@@ -23,9 +23,7 @@ const { Content } = await post.render();
     <div class="text-justify">
       <div class="my-5 content">
         <!-- dark:prose-invert  -->
-        <div
-          class="prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl"
-        >
+        <article class="prose lg:prose-xl">
           <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
           <span class="text-gray-500 text-right text-xs"
             ><FormattedDate
@@ -33,7 +31,7 @@ const { Content } = await post.render();
             /></span
           >
           <Content />
-        </div>
+        </article>
       </div>
     </div>
   </div>
