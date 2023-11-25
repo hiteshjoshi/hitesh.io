@@ -13,7 +13,8 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
   </head>
   <body
     x-data="{slideOverOpen: false }"
-    class="bg-white text-gray-800 antialiased"
+    class="bg-white text-gray-800 antialiased hidden"
+    x-init="document.body.classList.remove('hidden')"
   >
     <div class="flex">
         {isHomePage?<Logo />:<></>}
