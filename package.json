@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "build:tailwind":"tailwindcss -i  ./public/tailwind.css -o ./public/global.css --minify",
+    "build:tailwind":"tailwindcss -i  ./src/styles/tailwind.css -o ./src/styles/global.css --minify",
     "preview": "astro preview",
     "astro": "astro"
   },
