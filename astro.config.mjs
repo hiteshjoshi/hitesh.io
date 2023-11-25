@@ -7,11 +7,6 @@ import compress from "astro-compress";
 
 let config = {
   site: 'https://hitesh.io',
-  integrations: [mdx(), sitemap(), alpinejs()]
+  integrations: [mdx(), sitemap(), alpinejs(), tailwind(), compress()]
 }
-if (!process.env.NETLIFY) {//use tailwind astro only on development
-  config.integrations.push(tailwind())
-}
-if (process.env.NETLIFY) config.integrations.push(compress())
-// https://astro.build/config
 export default defineConfig(config);

@@ -1,5 +1,4 @@
 ---
-import InlineCss from "./InlineCss.astro";
 interface Props {
   title: string;
   description: string;
@@ -42,4 +41,3 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-<InlineCss />
