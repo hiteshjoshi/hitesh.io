@@ -24,9 +24,9 @@ const { Content } = await post.render();
       <div class="my-5">
         <!-- dark:prose-invert  -->
         <article
-          class="prose lg:prose-xl prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl"
+          class="prose prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl"
         >
-          <h2 class="text-3xl font-semibold lg:mb-0 mb-0">{post.data.title}</h2>
+          <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
           <span class="text-gray-500 text-right text-xs"
             ><FormattedDate
               date={post.data.updatedDate || post.data.pubDate}
