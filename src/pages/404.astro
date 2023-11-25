@@ -14,7 +14,10 @@ import Layout from "../layouts/Layout.astro";
     class="py-15 space-y-6 w-96 text-justify content-center mx-auto"
     x-init="slideOverOpen=true"
   >
-    <h2 class="text-4xl font-bold">404</h2>
-    <h2 class="text-4xl font-bold font-coder">you gotta &rarr;</h2>
+    <h2 class="text-4xl font-bold animate-bounce">404</h2>
+    <h2 class="text-4xl font-bold font-coder pb-10">
+      you gotta <span class="animate-ping">&darr;</span>
+    </h2>
+    <LogoSvg />
   </div>
 </Layout>
