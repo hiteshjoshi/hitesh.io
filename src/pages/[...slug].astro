@@ -19,8 +19,8 @@ const { Content } = await post.render();
 
 <Logo />
 <Layout {...post.data}>
-  <div class="space-y-6 w-1/2 content-center mx-auto">
-    <div class="text-justify">
+  <div class="w-1/2 mx-auto">
+    <div>
       <div class="my-5">
         <!-- dark:prose-invert  -->
         <article
@@ -38,3 +38,79 @@ const { Content } = await post.render();
     </div>
   </div>
 </Layout>
+<style>
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+  @media (min-width: 640px) {
+    .sm\:w-full {
+      width: 100%;
+    }
+
+    .sm\:px-5 {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .sm\:duration-100 {
+      transition-duration: 0.1s;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:w-1\/3 {
+      width: 33.333333%;
+    }
+
+    .md\:py-0 {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:w-\[20\%\] {
+      width: 20%;
+    }
+  }
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .flex {
+    display: flex;
+  }
+  .w-1\/2 {
+    width: 50%;
+  }
+  .my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+</style>
