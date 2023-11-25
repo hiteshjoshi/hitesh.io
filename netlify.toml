@@ -20,7 +20,9 @@
 
     # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
     dimensions = [
-      { width = 640, height = 1080 },
-      { width = 768, height = 1080 },
-      { width = 1280, height = 1080 },
+      { width = 640 },
+      { width = 768 },
+      { width = 1280 },
+      {width = 1536},
+      {width = 1024},
     ]
