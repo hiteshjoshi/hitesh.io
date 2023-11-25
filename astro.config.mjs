@@ -5,12 +5,12 @@ import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 import compress from "astro-compress";
 
-import netlify from "@astrojs/netlify/functions";
-
-// https://astro.build/config
-export default defineConfig({
+let config = {
   site: 'https://hitesh.io',
-  integrations: [mdx(), sitemap(), tailwind(), alpinejs(), compress()],
-  output: "server",
-  adapter: netlify()
-});
+  integrations: [mdx(), sitemap(), alpinejs(), compress()],
+  output: "static"
+};
+if (!process.env.NETLIFY) { //we use tailwind only on development. On netlify we build inline css in BaseHead.astro
+  config.integrations.push(tailwind())
+}
+export default defineConfig(config);
