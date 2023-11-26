@@ -2,7 +2,6 @@
 import Footer from "./Footer.astro";
 import { Image } from "astro:assets";
 import img from "./../assets/hitesh.jpeg";
-import LogoSvg from "./LogoSvg.astro";
 ---
 
 <div class="flex max-w-full pl-10">
@@ -10,7 +9,7 @@ import LogoSvg from "./LogoSvg.astro";
     <div class="flex items-start justify-between pb-1">
       <div class="flex items-center h-auto ml-3">
         <button
-          @mouseover="setTimeout(function() {slideOverOpen=true},100);"
+          @mouseover="setTimeout(function() {slideOverOpen=true},500);"
           @click="slideOverOpen=!slideOverOpen"
           class="absolute top-0 right-0 z-30 text-white flex items-center justify-center p-3 mt-4 mr-5 space-x-1 text-xs font-medium uppercase border rounded-full bg-gray-800 border-neutral-200"
         >
