@@ -76,40 +76,32 @@ import img from "./../assets/hitesh.png";
 
 <script is:inline>
   document.addEventListener("alpine:init", () => {
-    // @ts-ignore
     Alpine.store("menuToggle", {
       on: false,
       outsideMenuTimeout: null, // Add a property to store the timeout ID
       hoveringIcon: false,
       clickIcon() {
-        // @ts-ignore
         this.on = !this.on;
       },
 
       outsideMenu() {
-        // @ts-ignore
         this.outsideMenuTimeout = setTimeout(() => {
-          // @ts-ignore
           this.on = !this.on;
-          // @ts-ignore
+
           this.outsideMenuTimeout = null;
         }, 800);
       },
       insideMenu() {
-        // @ts-ignore
         if (this.outsideMenuTimeout) {
-          // @ts-ignore
           clearTimeout(this.outsideMenuTimeout);
         }
       },
 
-      hoverIcon(isHovering: boolean) {
-        // @ts-ignore
+      hoverIcon(isHovering) {
         this.hoveringIcon = isHovering;
-        // @ts-ignore
+
         if (this.on) return;
         setTimeout(() => {
-          // @ts-ignore
           this.on = this.hoveringIcon;
         }, 300);
       },
