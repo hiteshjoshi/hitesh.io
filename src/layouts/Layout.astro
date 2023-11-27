@@ -11,9 +11,7 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body
-    class="bg-white text-gray-800 antialiased"
-  >
+  <body x-data="" class="bg-white text-gray-800 antialiased">
     <div class="flex">
         {isHomePage?<Logo />:<></>}
         <Navigation />
@@ -25,11 +23,7 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
       
     >
       <slot />
-      <!-- Down arrow -->
-      <!-- <div class="text-center py-10">
-        <div class="text-3xl">&darr;</div>
-      </div>
-	   -->
+     
     </div>
   </body>
 </html>
