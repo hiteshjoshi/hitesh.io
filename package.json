@@ -6,12 +6,11 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "build:tailwind":"tailwindcss -i  ./src/styles/tailwind.css -o ./src/styles/global.css --minify",
     "preview": "astro preview",
     "astro": "astro"
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=20.0.0"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.1",
