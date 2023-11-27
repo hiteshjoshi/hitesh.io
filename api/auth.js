@@ -3,7 +3,6 @@ import Session from "supertokens-node/recipe/session";
 import ThirdPartyPasswordless from "supertokens-node/recipe/thirdpartypasswordless";
 import express from "express";
 import cors from "cors";
-import supertokens from "supertokens-node";
 import { middleware } from "supertokens-node/framework/express";
 
 supertokens.init({
