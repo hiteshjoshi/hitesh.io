@@ -51,11 +51,11 @@ import img from "./../assets/hitesh.png";
       <p x-set="$store.menuToggle.isHovering"></p>
       <div class="px-4 sm:px-5 mt-10 font-semibold font-mono">about</div>
       <div class="relative flex-1 px-4 mt-5 sm:px-5">
-        <div class="absolute inset-0 px-4 sm:px-5">
+        <div class="absolute inset-0 px-4 sm:px-5 flex flex-col">
           <Image
             src={img}
             alt="Hitesh Joshi"
-            class="rounded-md mb-2 grayscale hover:grayscale-0"
+            class="rounded-full mb-2 grayscale hover:grayscale-0 w-32 mx-auto content-center"
           />
           <div
             class="relative h-full overflow-hidden rounded-md border-neutral-300"
@@ -78,7 +78,7 @@ import img from "./../assets/hitesh.png";
   document.addEventListener("alpine:init", () => {
     // @ts-ignore
     Alpine.store("menuToggle", {
-      on: false,
+      on: true,
       outsideMenuTimeout: null, // Add a property to store the timeout ID
       hoveringIcon: false,
       clickIcon() {
