@@ -9,17 +9,19 @@ let config = {
   integrations: [mdx(), sitemap(), compress(), tailwind()],
   output: 'static',
   adapter: vercelStatic({
+    image: {
+      domains: ['hitesh.io'],
+    },
     imageService: true,
     imagesConfig: {
-      sizes: [320, 640, 1280],
+      sizes: [320, 640, 1280, 1920],
+      formats: ["image/avif", "image/webp"],
     },
     webAnalytics: {
       enabled: true,
     },
     speedInsights: {
       enabled: true,
-    }, imagesConfig: {
-      sizes: [320, 640, 1280],
     },
   }),
 };
