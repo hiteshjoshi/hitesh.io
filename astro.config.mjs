@@ -9,6 +9,13 @@ let config = {
   integrations: [mdx(), sitemap(), compress(), tailwind()],
   output: 'static',
   adapter: vercelStatic({
+    imageService: true,
+    imagesConfig: {
+      sizes: [320, 640, 1280, 1920],
+      domains: [],
+      minimumCacheTTL: 60,
+      formats: ["image/avif", "image/webp"],
+    },
     webAnalytics: {
       enabled: true,
     },
