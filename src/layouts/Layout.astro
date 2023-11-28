@@ -1,10 +1,9 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Logo from "../components/Logo.astro";
-import LogoSvg from "../components/LogoSvg.astro";
 import Navigation from "../components/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-const isHomePage = Astro.url.pathname.split("/")[0] !== "";
+const isHomePage = Astro.url.pathname.split("/")[1] === "";
 ---
 
 <!doctype html>
@@ -13,10 +12,16 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body x-data="" class="bg-white text-gray-800 antialiased">
-    <div class="flex">
-      {isHomePage ? <Logo /> : null}
-      <Navigation />
-    </div>
+    {
+      isHomePage ? (
+        <div class="py-10 flex items-center justify-center">
+          <Logo />
+        </div>
+      ) : (
+        <Logo />
+      )
+    }
+    <Navigation />
 
     <!-- Main container -->
     <div class="container mx-auto px-4 py">
