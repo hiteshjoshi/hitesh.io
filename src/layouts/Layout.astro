@@ -9,7 +9,7 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
 <!doctype html>
 <html
   lang="en"
-  x-data="{ darkMode: localStorage.getItem('darkMode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), init() {      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');      this.setDarkMode(mediaQuery.matches ? 'dark' : 'light');      mediaQuery.addListener(e => this.setDarkMode(e.matches ? 'dark' : 'light'));      this.$watch('darkMode', val => localStorage.setItem('darkMode', val));    },    setDarkMode(value) {      this.darkMode = value;      localStorage.setItem('darkMode', value);    }  }"
+  x-data="{darkMode: localStorage.getItem('darkMode') ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),init() {  const updateDarkModeFromSystem = () => {if (localStorage.getItem('darkMode') === null) {  this.darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';}  };  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');  mediaQuery.addListener(e => updateDarkModeFromSystem());this.$watch('darkMode', val => localStorage.setItem('darkMode', val));}}"
   x-init="init()"
   x-bind:class="{'dark': darkMode === 'dark'}"
 >
