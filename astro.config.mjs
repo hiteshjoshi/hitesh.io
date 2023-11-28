@@ -12,6 +12,9 @@ let config = {
     webAnalytics: {
       enabled: true,
     },
+    speedInsights: {
+      enabled: true,
+    },
   }),
 };
 
