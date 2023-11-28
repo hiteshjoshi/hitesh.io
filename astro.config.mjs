@@ -2,14 +2,11 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
-import vercelStatic from '@astrojs/vercel/static';
+import alpinejs from "@astrojs/alpinejs";
 import compress from "astro-compress";
+
 let config = {
   site: 'https://hitesh.io',
-  integrations: [mdx(), sitemap(), compress(), tailwind()],
-  output: 'static',
-  adapter: vercelStatic(),
-};
-
-// https://astro.build/config
+  integrations: [mdx(), sitemap(), compress(), tailwind()]
+}
 export default defineConfig(config);
