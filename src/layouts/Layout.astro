@@ -1,6 +1,7 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Logo from "../components/Logo.astro";
+import LogoSvg from "../components/LogoSvg.astro";
 import Navigation from "../components/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 const isHomePage = Astro.url.pathname.split("/")[0] !== "";
@@ -13,18 +14,17 @@ const isHomePage = Astro.url.pathname.split("/")[0] !== "";
   </head>
   <body x-data="" class="bg-white text-gray-800 antialiased">
     <div class="flex">
-        {isHomePage?<Logo />:<></>}
-        <Navigation />
+      {isHomePage ? <Logo /> : null}
+      <Navigation />
     </div>
 
     <!-- Main container -->
-    <div
-      class="container mx-auto px-4 py"
-      
-    >
+    <div class="container mx-auto px-4 py">
       <slot />
-     
     </div>
-    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
+    ></script>
   </body>
 </html>

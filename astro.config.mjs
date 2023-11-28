@@ -8,7 +8,11 @@ let config = {
   site: 'https://hitesh.io',
   integrations: [mdx(), sitemap(), compress(), tailwind()],
   output: 'static',
-  adapter: vercelStatic(),
+  adapter: vercelStatic({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 };
 
 // https://astro.build/config
