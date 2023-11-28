@@ -1,5 +1,5 @@
 ---
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 interface Props {
   date: Date;
 }
@@ -8,15 +8,5 @@ const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
-  {
-    // date.toLocaleDateString("en-us", {
-    //   year: "numeric",
-    //   month: "short",
-    //   day: "numeric",
-    //   minute: "numeric",
-    //   hour: "numeric",
-    //   timeStyle: "long",
-    // })
-    dateFormat(date, "dddd, mmmm dS, yyyy, h:MM:ss TT")
-  }
+  {dateFormat(date, "ddd, mmm dS, yyyy")}
 </time>

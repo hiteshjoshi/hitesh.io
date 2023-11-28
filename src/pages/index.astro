@@ -23,7 +23,7 @@ const posts = (await getCollection("blog",({ data }) => {
     {
       posts.map((post) => (
       <div class="py-4">
-          <a href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
+          <a data-astro-prefetch href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
           <span class="text-gray-500 text-right text-xs">
             <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
           </span>

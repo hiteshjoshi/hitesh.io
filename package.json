@@ -18,6 +18,7 @@
     "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
+    "@astrojs/vercel": "^5.2.0",
     "@types/alpinejs": "^3.13.5",
     "alpinejs": "^3.13.3",
     "astro": "^3.6.0",
