@@ -7,11 +7,16 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}"
+  x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+  x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body x-data="" class="bg-white text-gray-800 antialiased">
+  <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
     {
       isHomePage ? (
         <div class="py-10 flex items-center justify-center">
