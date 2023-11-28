@@ -10,23 +10,20 @@ const posts = (await getCollection("blog",({ data }) => {
 );
 ---
 <Layout>
-  <!-- Title section -->
-  
-
-  <!-- Posts section -->
-  <div class="flex flex-col items-center justify-center">
-    <div class="text-justify">
-    
-    {
-      posts.map((post) => (
-      <div class="py-4">
-          <a data-astro-prefetch href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
-          <span class="text-gray-500 text-right text-xs">
-            <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
-          </span>
-        </div>
-      ))
-    }
-  </div>
+  <div class="container mx-auto px-4 py">
+    <div class="flex flex-col items-center justify-center">
+      <div class="text-justify">
+        {
+          posts.map((post) => (
+          <div class="py-4">
+              <a data-astro-prefetch href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
+              <span class="text-gray-500 text-right text-xs">
+                <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </Layout>
