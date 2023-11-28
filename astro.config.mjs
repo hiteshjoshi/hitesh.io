@@ -10,6 +10,9 @@ let config = {
   output: 'static',
   adapter: vercelStatic({
     imageService: true,
+    imagesConfig: {
+      sizes: [320, 640, 1280],
+    },
     webAnalytics: {
       enabled: true,
     },
