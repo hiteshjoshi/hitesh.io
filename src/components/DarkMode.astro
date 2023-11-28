@@ -2,7 +2,7 @@
   <button
     class="text-gray-500"
     x-show="darkMode == 'light'"
-    x-on:click="darkMode = 'dark'"
+    x-on:click="darkMode = 'dark';localStorage.setItem('darkMode',darkMode);"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@
 
   <button
     x-show="darkMode == 'dark'"
-    x-on:click="darkMode = 'light'"
+    x-on:click="darkMode = 'light';localStorage.setItem('darkMode',darkMode);"
     class="text-gray-500"
   >
     <svg
