@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 const posts = (await getCollection("blog",({ data }) => {
-    data.isDraft !== true;
+    if (data.isDraft !== true || import.meta.env.VERCEL_ENV === 'development')
     return data;
   })).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -15,11 +15,13 @@ const posts = (await getCollection("blog",({ data }) => {
       <div class="text-justify">
         {
           posts.map((post) => (
-          <div class="py-4 dark:text-gray-100">
-              <a data-astro-prefetch href=`/${post.slug}/`><h2 class="text-2xl font-semibold">{post.data.title}</h2></a>
-              <span class="dark:dark:text-gray-600 text-gray-500 text-right text-xs">
+          <div class="py-3 w-96 dark:text-gray-100">
+              <a data-astro-prefetch href=`/${post.slug}/`><h2 class="text-3xl font-semibold">{post.data.title}</h2></a>
+              <span class="dark:text-gray-500 text-gray-400 text-xs">
                 <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
               </span>
+              <p class="text-m dark:text-gray-600 text-gray-500">{post.data.description}</p>
+              
             </div>
           ))
         }
