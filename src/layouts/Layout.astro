@@ -20,8 +20,8 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
     <div class="relative min-h-screen">
       <div
         class="w-full h-full absolute z-[-1] top-0 left-0"
-        x-data="{ opacity: 0 }"
-        x-init="setInterval(() => { if (opacity < 0.9) {    opacity += 0.1; } else {    opacity = 0;}              }, 300)"
+        x-data="{ opacity: 0, increasing: true }"
+        x-init="setInterval(() => { if (increasing) {    opacity += 0.1;     if (opacity >= 0.9) increasing = false;} else {    opacity -= 0.1;    if (opacity <= 0) increasing = true;}}, 150)"
         x-bind:style="'opacity: ' + opacity.toFixed(1)"
       >
         <div
