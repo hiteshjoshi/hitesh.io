@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hitesh.io/sitemap-index.xml
