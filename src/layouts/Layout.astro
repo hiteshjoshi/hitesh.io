@@ -9,8 +9,8 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
 <!doctype html>
 <html
   lang="en"
-  x-data="{darkMode: localStorage.getItem('darkMode') || 'system',updateTheme() {this.darkMode = localStorage.getItem('darkMode');if (this.darkMode === 'system') {this.applySystemTheme();}},applySystemTheme() {const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.classList.toggle('dark', isDark);}}"
-  x-init="updateTheme(); $watch('darkMode', val => localStorage.setItem('darkMode', val)); window.matchMedia('(prefers-color-scheme: dark)').addListener(applySystemTheme)"
+  x-data="{darkMode: localStorage.getItem('darkMode')|| localStorage.setItem('darkMode', 'system')}"
+  x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
   x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
 >
   <head>
