@@ -20,13 +20,9 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
     <div class="relative min-h-screen">
       <div
         class="w-full h-full absolute z-[-1] top-0 left-0"
-        x-data="{ opacity: 0, increasing: true }"
-        x-init="setInterval(() => { if (increasing) {    opacity += 0.1;     if (opacity >= 0.9) increasing = false;} else {    opacity -= 0.1;    if (opacity <= 0) increasing = true;}}, 150)"
-        x-bind:style="'opacity: ' + opacity.toFixed(1)"
       >
         <div
           class="w-full h-full opacity-10 dark:opacity-[.15]"
-          style="background: radial-gradient(circle at 83% 350px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 15% 1050px, rgb(0, 165, 255), rgba(0, 165, 255, 0) 500px), radial-gradient(circle at 84% 1750px, rgb(0, 165, 255), rgba(0, 165, 255, 0) 500px), radial-gradient(circle at 15% 2450px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 85% 3150px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 15% 3850px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 85% 4550px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 15% 5250px, rgb(69, 0, 255), rgba(69, 0, 255, 0) 500px), radial-gradient(circle at 85% 5950px, rgb(69, 0, 255), rgba(69, 0, 255, 0) 500px), radial-gradient(circle at 15% 6650px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 89% 7350px, rgb(0, 165, 255), rgba(0, 165, 255, 0) 500px), radial-gradient(circle at 15% 8050px, rgb(0, 165, 255), rgba(0, 165, 255, 0) 500px), radial-gradient(circle at 87% 8750px, rgb(0, 255, 196), rgba(0, 255, 196, 0) 500px), radial-gradient(circle at 15% 9450px, rgb(69, 0, 255), rgba(69, 0, 255, 0) 500px), radial-gradient(circle at 88% 10150px, rgb(69, 0, 255), rgba(69, 0, 255, 0) 500px);"
         >
         </div>
       </div>
