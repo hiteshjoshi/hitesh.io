@@ -1,13 +1,18 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import { SITE_DESCRIPTION } from "../consts";
 
-const { title, description, image = "/logo.png" } = Astro.props;
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  image = "/logo.png",
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
