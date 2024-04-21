@@ -31,12 +31,12 @@ const { Content } = await post.render();
           <article
             class="dark:prose-invert prose lg:prose-xl prose-p:text-justify prose-img:rounded-xl"
           >
-            {
+            <!-- {
               post.data.hero !== undefined &&
                 post.data.heroAlt !== undefined && (
                   <Image src={post.data.hero!} alt={post.data.heroAlt} />
                 )
-            }
+            } -->
 
             <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
             <span class="text-gray-500 text-right text-xs"
