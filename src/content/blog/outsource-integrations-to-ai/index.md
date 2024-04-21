@@ -1,6 +1,6 @@
 ---
 title: 'Outsource integrations to AI'
-description: 'The developer tool will be a core offering to build in-house integrations, and Ploton’s premium offering will also include `Outsource Integrations to AI.`'
+description: 'Why is it important to outsource integrations to an AI? And what is the current auth market hinting towards?'
 pubDate: 2024-04-21T07:05:33.978Z
 updatedDate: 2024-04-21T14:04:46.306Z
 isDraft: false
