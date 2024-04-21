@@ -19,8 +19,8 @@ const { description } = Astro.props;
   x-init="init()"
   x-bind:class="{'dark': darkMode === 'dark'}"
 >
-  <head> </head>const {description} = Astro.props;
-  <BaseHead title={SITE_TITLE} description={description} />
+  <head> </head>
+  <BaseHead title={SITE_TITLE} {description} />
 
   <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
     <div class="relative min-h-screen">
@@ -44,5 +44,6 @@ const { description } = Astro.props;
       src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
     ></script>
   </body>
+
 
 </html>
