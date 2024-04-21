@@ -3,7 +3,6 @@ title: The advantage
 description: My advantage for running a low-code startup that helps companies build integrations.
 pubDate: 2023-11-29T05:54:25.356Z
 updatedDate: 2023-11-29T05:54:25.356Z
-hero: ""
 isDraft: true
 categories: []
 ---

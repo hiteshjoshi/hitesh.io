@@ -1,8 +1,12 @@
 ---
 title: 'Outsource integrations to AI'
 description: 'The developer tool will be a core offering to build in-house integrations, and Ploton’s premium offering will also include `Outsource Integrations to AI.`'
-pubDate: 'April 21 2024 10:41'
+pubDate: 2024-04-21T07:05:33.978Z
+updatedDate: 2024-04-21T14:04:46.306Z
 isDraft: false
+hero: "./outsource_to_ai.webp"
+heroAlt: "outsource to AI"
+categories: ["ploton","startup"]
 ---
 
 Today, it seems almost everyone is building an AI company or companies that are powered by AI. I never thought I would participate in what we call "The AI Company" bubble.
