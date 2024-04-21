@@ -6,10 +6,11 @@ import { SITE_TITLE } from "../consts";
 const isHomePage = Astro.url.pathname.split("/")[1] === "";
 
 interface Props {
+  title?: string;
   description?: string;
 }
 
-const { description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,7 +21,7 @@ const { description } = Astro.props;
   x-bind:class="{'dark': darkMode === 'dark'}"
 >
   <head> </head>
-  <BaseHead title={SITE_TITLE} description={description} />
+  <BaseHead title={title} description={description} />
 
   <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
     <div class="relative min-h-screen">
