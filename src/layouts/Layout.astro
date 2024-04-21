@@ -8,22 +8,18 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
 
 <!doctype html>
 <html
-lang="en"
-x-data="{ darkMode: localStorage.getItem('darkMode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), init() {      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');      this.setDarkMode(mediaQuery.matches ? 'dark' : 'light');      mediaQuery.addListener(e => this.setDarkMode(e.matches ? 'dark' : 'light'));      this.$watch('darkMode', val => localStorage.setItem('darkMode', val));    },    setDarkMode(value) {      this.darkMode = value;      localStorage.setItem('darkMode', value);    }  }"
-x-init="init()"
-x-bind:class="{'dark': darkMode === 'dark'}">
+  lang="en"
+  x-data="{ darkMode: localStorage.getItem('darkMode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'), init() {      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');      this.setDarkMode(mediaQuery.matches ? 'dark' : 'light');      mediaQuery.addListener(e => this.setDarkMode(e.matches ? 'dark' : 'light'));      this.$watch('darkMode', val => localStorage.setItem('darkMode', val));    },    setDarkMode(value) {      this.darkMode = value;      localStorage.setItem('darkMode', value);    }  }"
+  x-init="init()"
+  x-bind:class="{'dark': darkMode === 'dark'}"
+>
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
     <div class="relative min-h-screen">
-      <div
-        class="w-full h-full absolute z-[-1] top-0 left-0"
-      >
-        <div
-          class="w-full h-full opacity-10 dark:opacity-[.15]"
-        >
-        </div>
+      <div class="w-full h-full absolute z-[-1] top-0 left-0">
+        <div class="w-full h-full opacity-10 dark:opacity-[.15]"></div>
       </div>
 
       {
@@ -41,5 +37,9 @@ x-bind:class="{'dark': darkMode === 'dark'}">
       is:inline
       src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
     ></script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true });
+    </script>
   </body>
 </html>
