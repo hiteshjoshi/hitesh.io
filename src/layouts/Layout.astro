@@ -2,8 +2,14 @@
 import BaseHead from "../components/BaseHead.astro";
 import Logo from "../components/Logo.astro";
 import Navigation from "../components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE } from "../consts";
 const isHomePage = Astro.url.pathname.split("/")[1] === "";
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,9 +19,9 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
   x-init="init()"
   x-bind:class="{'dark': darkMode === 'dark'}"
 >
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
+  <head> </head>const {description} = Astro.props;
+  <BaseHead title={SITE_TITLE} description={description} />
+
   <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
     <div class="relative min-h-screen">
       <div class="w-full h-full absolute z-[-1] top-0 left-0">
@@ -38,4 +44,5 @@ const isHomePage = Astro.url.pathname.split("/")[1] === "";
       src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
     ></script>
   </body>
+
 </html>

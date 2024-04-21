@@ -1,10 +1,11 @@
 ---
 import Logo from "../components/Logo.astro";
 import Layout from "../layouts/Layout.astro";
+import { SITE_DESCRIPTION } from "../consts";
 ---
 
 <div class="container mx-auto px-4 py">
-  <Layout>
+  <Layout description={SITE_DESCRIPTION}>
     <!-- Title section -->
     <div class="py-20 flex items-center justify-center">
       <Logo />
