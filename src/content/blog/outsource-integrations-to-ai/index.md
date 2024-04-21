@@ -1,6 +1,6 @@
 ---
 title: 'Outsource integrations to AI'
-description: 'The developer tool will be a core offering to build in-house integrations, and Ploton’s premium offering will also include "Outsource Integrations to AI."'
+description: 'The developer tool will be a core offering to build in-house integrations, and Ploton’s premium offering will also include `Outsource Integrations to AI.`'
 pubDate: 'April 21 2024 10:41'
 isDraft: false
 ---
