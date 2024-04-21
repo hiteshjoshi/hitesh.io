@@ -20,7 +20,7 @@ const { Content } = await post.render();
 
 <Layout
   description={post.data.description}
-  title={post.data.title}
+  title={post.data.socialTitle || post.data.title}
   image={post.data.hero?.src}
 >
   <Logo />
