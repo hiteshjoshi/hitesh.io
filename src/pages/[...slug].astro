@@ -3,7 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Logo from "../components/Logo.astro";
-import { Image } from "astro:assets";
+import Footer from "../components/Footer.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -31,13 +31,6 @@ const { Content } = await post.render();
           <article
             class="dark:prose-invert prose lg:prose-xl prose-p:text-justify prose-img:rounded-xl"
           >
-            <!-- {
-              post.data.hero !== undefined &&
-                post.data.heroAlt !== undefined && (
-                  <Image src={post.data.hero!} alt={post.data.heroAlt} />
-                )
-            } -->
-
             <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
             <span class="text-gray-500 text-right text-xs"
               ><FormattedDate
@@ -47,6 +40,37 @@ const { Content } = await post.render();
             <Content />
           </article>
         </div>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="mt-20 mb-5">
+          <!-- Grid -->
+          <div class="text-left">
+            <div>
+              --<p
+                class="flex-none text-xl font-semibold text-black dark:text-white"
+                aria-label="Hitesh"
+              >
+                Hitesh Joshi
+              </p>
+            </div>
+            <!-- End Col -->
+
+            <p class="text-gray-500 dark:text-neutral-500">
+              Got some comments? <a
+                href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
+                  Astro.url}
+                class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400"
+                target="_blank">Shoot a tweet</a
+              >
+            </p>
+
+            <!-- Social Brands -->
+            <Footer />
+            <!-- End Social Brands -->
+          </div>
+          <!-- End Grid -->
+        </footer>
+        <!-- ========== END FOOTER ========== -->
       </div>
     </div>
   </div>

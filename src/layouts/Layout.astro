@@ -20,7 +20,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" x-init="init()">
   <head>
     <meta charset="UTF-8" /><meta
       http-equiv="Content-Type"
@@ -89,5 +89,9 @@ const {
 
       <slot />
     </div>
+    <script
+      is:inline
+      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
+    ></script>
   </body>
 </html>
