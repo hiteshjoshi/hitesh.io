@@ -1,6 +1,7 @@
 ---
 title: 'Outsource integrations to AI'
-description: 'Why is it important to outsource integrations to an AI? And what is the current auth market hinting towards?'
+socialTitle: "Considering AI for Business Integrations? Why Companies Can't Afford to Ignore This Trend"
+description: "Why is it important to outsource integrations to an AI? And what is the current auth market hinting towards?"
 pubDate: 2024-04-21T07:05:33.978Z
 updatedDate: 2024-04-21T14:04:46.306Z
 isDraft: false
