@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+.logo{
+    @apply flex text-center items-center mt-4 p-4 space-x-2 text-gray-900 md:py-0;
+    svg{
+        @apply dark:fill-gray-100 fill-black;
+    }
+}
+
 /* Main layout */
 .main {
     @apply px-4 py-10 mx-auto max-w-3xl sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl;
