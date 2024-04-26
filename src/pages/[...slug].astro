@@ -24,79 +24,45 @@ const { Content } = await post.render();
   image={post.data.hero?.src}
 >
   <Logo />
-  <div class="main antialiased">
-    <div class="post">
-      <article
-        class="prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert mx-auto"
+  <div class="post">
+    <article>
+      <h2>{post.data.title}</h2>
+
+      <span class="date"
+        ><FormattedDate
+          date={post.data.updatedDate || post.data.pubDate}
+        /></span
       >
-        <h2 class="heading">{post.data.title}</h2>
+      <Content />
 
-        <span class="date"
-          ><FormattedDate
-            date={post.data.updatedDate || post.data.pubDate}
-          /></span
-        >
-        <Content />
+      <p class="category">
+        {post.data.categories.map((item) => <span>#{item}</span>)}
+      </p>
+    </article>
 
-        <p class="category">
-          {post.data.categories.map((item) => <span>#{item}</span>)}
-        </p>
-      </article>
-
-      <!-- ========== FOOTER ========== -->
-      <div class="footer">
-        <!-- Grid -->
+    <!-- ========== FOOTER ========== -->
+    <div class="footer">
+      <!-- Grid -->
+      <div>
         <div>
-          <div>
-            --<p class="name" aria-label="Hitesh">Hitesh Joshi</p>
-          </div>
-          <!-- End Col -->
-
-          <p class="comments">
-            Got some comments? <a
-              href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
-                Astro.url}
-              target="_blank">Shoot a tweet</a
-            >
-          </p>
-
-          <!-- Social Brands -->
-          <Footer />
-          <!-- End Social Brands -->
+          --<p class="name" aria-label="Hitesh">Hitesh Joshi</p>
         </div>
-        <!-- End Grid -->
+        <!-- End Col -->
+
+        <p class="comments">
+          Got some comments? <a
+            href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
+              Astro.url}
+            target="_blank">Shoot a tweet</a
+          >
+        </p>
+
+        <!-- Social Brands -->
+        <Footer />
+        <!-- End Social Brands -->
       </div>
-      <!-- ========== END FOOTER ========== -->
+      <!-- End Grid -->
     </div>
+    <!-- ========== END FOOTER ========== -->
   </div>
 </Layout>
-
-<style>
-  .category {
-    @apply text-sm pt-5 px-0;
-  }
-  .category span {
-    @apply px-2;
-  }
-  .post {
-    @apply mx-auto  md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 my-5 space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24;
-  }
-  .heading {
-    @apply text-3xl font-semibold mb-0;
-  }
-  .date {
-    @apply text-gray-500 text-right text-xs;
-  }
-  .footer {
-    @apply mt-20 mb-5;
-  }
-  .name {
-    @apply flex-none text-xl font-semibold text-black dark:text-white;
-  }
-  .comments {
-    @apply text-gray-500 dark:text-neutral-400;
-  }
-  .comments a {
-    @apply font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-100 dark:hover:text-blue-400;
-  }
-</style>

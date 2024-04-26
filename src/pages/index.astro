@@ -10,38 +10,21 @@ const posts = (await getCollection("blog",({ data }) => {
 );
 ---
 <Layout>
-  <div class="main">
+<div class="main antialiased">
 		
-			{
-				posts.map((post) => (
-				<div class="posts">
-						<a data-astro-prefetch href=`/${post.slug}/`><h2 class="heading">{post.data.title}</h2></a>
-						<span class="date">
-							<FormattedDate date={post.data.updatedDate || post.data.pubDate} />
-						</span>
-						<p class="desc">{post.data.description}</p>
-					</div>
-				))
-			}
+			<div class="post">
+				{
+					posts.map((post) => (
+					<div class="posts">
+							<a data-astro-prefetch href=`/${post.slug}/`><h2 class="heading">{post.data.title}</h2></a>
+							<span class="date">
+								<FormattedDate date={post.data.updatedDate || post.data.pubDate} />
+							</span>
+							<p class="desc">{post.data.description}</p>
+						</div>
+					))
+				}
+			</div>
 		
   </div>
 </Layout>
-<style is:global>
-	.main{
-		@apply px-4 py-10 max-w-3xl mx-auto sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl;
-	}
-	.posts{
-		@apply py-3 w-auto dark:text-gray-100;
-	}
-	.heading{
-		@apply text-3xl font-semibold text-left;
-	}
-	.date{
-		@apply dark:text-gray-500 text-gray-400 text-xs
-	}
-	.desc{
-		@apply dark:text-gray-600 text-gray-500
-	}
-
-	
-</style>

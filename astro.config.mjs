@@ -6,7 +6,7 @@ import vercelStatic from '@astrojs/vercel/static';
 import compress from "astro-compress";
 let config = {
   site: 'https://hitesh.io',
-  integrations: [mdx(), sitemap(), compress(), tailwind()],
+  integrations: [mdx(), sitemap(), compress(), tailwind({ applyBaseStyles: false, nesting: true, })],
   output: 'static',
   adapter: vercelStatic({
     imageService: true,
