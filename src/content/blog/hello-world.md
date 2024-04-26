@@ -1,6 +1,6 @@
 ---
 title: 'Hello world'
-description: 'Hello world'
+description: 'Hello world! I accidently deleted my ghost blog on railway.app and this is a fresh start.'
 pubDate: 'Nov 25 2023 14:57'
 isDraft: false
 ---
