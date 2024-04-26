@@ -30,18 +30,23 @@ const { Content } = await post.render();
         class="prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert mx-auto"
       >
         <h2 class="heading">{post.data.title}</h2>
+
         <span class="date"
           ><FormattedDate
             date={post.data.updatedDate || post.data.pubDate}
           /></span
         >
         <Content />
+
+        <p class="category">
+          {post.data.categories.map((item) => <span>#{item}</span>)}
+        </p>
       </article>
 
       <!-- ========== FOOTER ========== -->
-      <footer class="footer">
+      <div class="footer">
         <!-- Grid -->
-        <div class="text-left">
+        <div>
           <div>
             --<p class="name" aria-label="Hitesh">Hitesh Joshi</p>
           </div>
@@ -60,13 +65,19 @@ const { Content } = await post.render();
           <!-- End Social Brands -->
         </div>
         <!-- End Grid -->
-      </footer>
+      </div>
       <!-- ========== END FOOTER ========== -->
     </div>
   </div>
 </Layout>
 
 <style>
+  .category {
+    @apply text-sm pt-5 px-0;
+  }
+  .category span {
+    @apply px-2;
+  }
   .post {
     @apply mx-auto  md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 my-5 space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24;
   }
@@ -83,9 +94,9 @@ const { Content } = await post.render();
     @apply flex-none text-xl font-semibold text-black dark:text-white;
   }
   .comments {
-    @apply text-gray-500 dark:text-neutral-500;
+    @apply text-gray-500 dark:text-neutral-400;
   }
   .comments a {
-    @apply font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400;
+    @apply font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-100 dark:hover:text-blue-400;
   }
 </style>
