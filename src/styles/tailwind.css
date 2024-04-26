@@ -63,6 +63,7 @@
 
 
 .not_found {
+    @apply container mx-auto px-4;
     .logo{
         @apply py-20 flex items-center justify-center;
     }
