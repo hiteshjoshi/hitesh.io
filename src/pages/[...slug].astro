@@ -24,54 +24,68 @@ const { Content } = await post.render();
   image={post.data.hero?.src}
 >
   <Logo />
-  <div class="container mx-auto px-4 py">
-    <div class="mx-auto w-[90%] md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2">
-      <div>
-        <div class="my-5">
-          <article
-            class="dark:prose-invert prose lg:prose-xl prose-p:text-justify prose-img:rounded-xl"
-          >
-            <h2 class="text-3xl font-semibold mb-0">{post.data.title}</h2>
-            <span class="text-gray-500 text-right text-xs"
-              ><FormattedDate
-                date={post.data.updatedDate || post.data.pubDate}
-              /></span
-            >
-            <Content />
-          </article>
-        </div>
+  <div class="main antialiased">
+    <div class="post">
+      <article
+        class="prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert mx-auto"
+      >
+        <h2 class="heading">{post.data.title}</h2>
+        <span class="date"
+          ><FormattedDate
+            date={post.data.updatedDate || post.data.pubDate}
+          /></span
+        >
+        <Content />
+      </article>
 
-        <!-- ========== FOOTER ========== -->
-        <footer class="mt-20 mb-5">
-          <!-- Grid -->
-          <div class="text-left">
-            <div>
-              --<p
-                class="flex-none text-xl font-semibold text-black dark:text-white"
-                aria-label="Hitesh"
-              >
-                Hitesh Joshi
-              </p>
-            </div>
-            <!-- End Col -->
-
-            <p class="text-gray-500 dark:text-neutral-500">
-              Got some comments? <a
-                href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
-                  Astro.url}
-                class="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400"
-                target="_blank">Shoot a tweet</a
-              >
-            </p>
-
-            <!-- Social Brands -->
-            <Footer />
-            <!-- End Social Brands -->
+      <!-- ========== FOOTER ========== -->
+      <footer class="footer">
+        <!-- Grid -->
+        <div class="text-left">
+          <div>
+            --<p class="name" aria-label="Hitesh">Hitesh Joshi</p>
           </div>
-          <!-- End Grid -->
-        </footer>
-        <!-- ========== END FOOTER ========== -->
-      </div>
+          <!-- End Col -->
+
+          <p class="comments">
+            Got some comments? <a
+              href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
+                Astro.url}
+              target="_blank">Shoot a tweet</a
+            >
+          </p>
+
+          <!-- Social Brands -->
+          <Footer />
+          <!-- End Social Brands -->
+        </div>
+        <!-- End Grid -->
+      </footer>
+      <!-- ========== END FOOTER ========== -->
     </div>
   </div>
 </Layout>
+
+<style>
+  .post {
+    @apply mx-auto  md:w-1/2 lg:w-1/2 xl:w-1/2 2xl:w-1/2 my-5 space-y-10 sm:space-y-12 lg:space-y-20 xl:space-y-24;
+  }
+  .heading {
+    @apply text-3xl font-semibold mb-0;
+  }
+  .date {
+    @apply text-gray-500 text-right text-xs;
+  }
+  .footer {
+    @apply mt-20 mb-5;
+  }
+  .name {
+    @apply flex-none text-xl font-semibold text-black dark:text-white;
+  }
+  .comments {
+    @apply text-gray-500 dark:text-neutral-500;
+  }
+  .comments a {
+    @apply font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400;
+  }
+</style>

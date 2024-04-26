@@ -73,11 +73,7 @@ const {
   <meta name="twitter:image" content={new URL(image, Astro.url)} />
 
   <body class="bg-white text-gray-800 antialiased dark:bg-gray-900">
-    <div class="relative min-h-screen">
-      <div class="w-full h-full absolute z-[-1] top-0 left-0">
-        <div class="w-full h-full opacity-10 dark:opacity-[.15]"></div>
-      </div>
-
+    <div class="min-h-screen">
       {
         isHomePage ? (
           <div class="py-10 flex items-center justify-center">
@@ -86,8 +82,9 @@ const {
         ) : null
       }
       <Navigation />
-
-      <slot />
+      <div class="max-w-screen-xl mx-auto p-5 sm:p-8 md:p-12 relative">
+        <slot />
+      </div>
     </div>
     <script
       is:inline
