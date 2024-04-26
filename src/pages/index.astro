@@ -15,13 +15,13 @@ const posts = (await getCollection("blog",({ data }) => {
 			<div class="post">
 				{
 					posts.map((post) => (
-					<div class="posts">
-							<a data-astro-prefetch href=`/${post.slug}/`><h2 class="heading">{post.data.title}</h2></a>
+					<a data-astro-prefetch href=`/${post.slug}/`><div class="posts group">
+							<h2 class="heading">{post.data.title}</h2>
 							<span class="date">
 								<FormattedDate date={post.data.updatedDate || post.data.pubDate} />
 							</span>
-							<p class="desc">{post.data.description}</p>
-						</div>
+							<p class="desc  group-hover:text-gray-900">{post.data.description}</p>
+						</div></a>
 					))
 				}
 			</div>
