@@ -32,7 +32,7 @@
 
 
 .desc {
-    @apply text-gray-200 dark:text-gray-600 transition-all;
+    @apply text-gray-900 dark:text-gray-600 transition-all;
 }
 
 .category {

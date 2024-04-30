@@ -20,7 +20,7 @@ const posts = (await getCollection("blog",({ data }) => {
 							<span class="date">
 								<FormattedDate date={post.data.updatedDate || post.data.pubDate} />
 							</span>
-							<p class="desc  group-hover:text-gray-900">{post.data.description}</p>
+							<p class="desc">{post.data.description}</p>
 						</div></a>
 					))
 				}
