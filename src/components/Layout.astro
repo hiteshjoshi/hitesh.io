@@ -67,6 +67,12 @@ import "../styles/tailwind.css";
     /><meta name="twitter:description" content={description} /><meta
       name="twitter:image"
       content={new URL(image, Astro.url)}
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={title}
+      href={`${Astro.site}rss.xml`}
     /></head
   >
 
