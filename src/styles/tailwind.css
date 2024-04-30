@@ -37,6 +37,9 @@
 
 .category {
     @apply text-sm pt-5 px-0;
+    a{
+        @apply mr-5;
+    }
 }
 
 .category span {

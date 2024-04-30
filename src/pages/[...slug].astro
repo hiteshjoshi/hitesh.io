@@ -36,7 +36,13 @@ const { Content } = await post.render();
       <Content />
 
       <p class="category">
-        {post.data.categories.map((item) => <span>#{item}</span>)}
+        {
+          post.data.categories.map((item) => (
+            <a data-astro-prefetch href={`/category/${item}`}>
+              #{item}
+            </a>
+          ))
+        }
       </p>
     </article>
 

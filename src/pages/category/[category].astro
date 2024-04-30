@@ -1,0 +1,51 @@
+---
+import {  getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Layout from "../../components/Layout.astro";
+
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const uniqueCategories = [
+    ...new Set(posts.map((post) => post.data.categories).flat()),
+  ];
+  return uniqueCategories.map((category) => {
+    const filteredPosts = posts.filter((post) =>
+      post.data.categories.includes(category)
+    );
+    return {
+      params: { category },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { posts } = Astro.props;
+const { category } = Astro.params;
+---
+
+
+<Layout>
+  <div class="main antialiased">
+    
+        <div class="post">
+          <div class="py-10"><a data-astro-prefetch href=`/`><span>&larr;</span> Back home</a></div>
+
+          <div class="py-5">Posts for category : #{category}</div>
+          
+          {
+            posts.map((post) => (
+            <a data-astro-prefetch href=`/${post.slug}/`><div class="posts group">
+                <h2 class="heading">{post.data.title}</h2>
+                <span class="date">
+                  <FormattedDate date={post.data.updatedDate || post.data.pubDate} />
+                </span>
+                <p class="desc  group-hover:text-gray-900">{post.data.description}</p>
+              </div></a>
+            ))
+          }
+        </div>
+      
+    </div>
+  </Layout>
+  
