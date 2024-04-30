@@ -21,6 +21,8 @@ export async function GET(context) {
 				allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
 			}),
 			link: `/${post.slug}/`,
-		})),
+		})).sort(
+			(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+		),
 	});
 }
