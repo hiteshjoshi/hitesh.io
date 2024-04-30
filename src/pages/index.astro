@@ -2,29 +2,32 @@
 import Layout from "../components/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
-const posts = (await getCollection("blog",({ data }) => {
-    if (data.isDraft !== true || import.meta.env.VERCEL_ENV === 'development')
-    return data;
-  })).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (
+  await getCollection("blog", ({ data }) => {
+    if (data.isDraft !== true || import.meta.env.VERCEL_ENV === "development")
+      return data;
+  })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
+
 <Layout>
-<div class="main antialiased">
-		
-			<div class="group">
-				{
-					posts.map((post) => (
-					<a data-astro-prefetch href=`/${post.slug}/`><div class="posts group">
-							<h2 class="heading">{post.data.title}</h2>
-							<span class="date">
-								<FormattedDate date={post.data.updatedDate || post.data.pubDate} />
-							</span>
-							<p class="desc">{post.data.description}</p>
-						</div></a>
-					))
-				}
-			</div>
-		
+  <div class="main antialiased">
+    <div class="posts_group">
+      {
+        posts.map((post) => (
+          <a data-astro-prefetch href={`/${post.slug}/`}>
+            <div class="posts group">
+              <h2 class="heading hover-gradient-text">{post.data.title}</h2>
+              <span class="date hover-gradient-text">
+                <FormattedDate
+                  date={post.data.updatedDate || post.data.pubDate}
+                />
+              </span>
+              <p class="desc hover-gradient-text">{post.data.description}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </Layout>
