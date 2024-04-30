@@ -15,14 +15,14 @@ export async function GET(context) {
 		description: SITE_DESCRIPTION,
 		site: context.site,
 		trailingSlash: false,
-		items: posts.map((post) => ({
+		items: posts.sort(
+			(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+		).map((post) => ({
 			...post.data,
 			content: sanitizeHtml(parser.render(post.body), {
 				allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
 			}),
 			link: `/${post.slug}/`,
-		})).sort(
-			(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-		),
+		})),
 	});
 }
