@@ -18,6 +18,7 @@
 .hover-gradient-text {
     @apply group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:via-purple-500 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent animate-text;
 }
+
 .posts_group{
     @apply mx-auto md:w-1/2;
 }
