@@ -12,7 +12,7 @@ const posts = (await getCollection("blog",({ data }) => {
 <Layout>
 <div class="main antialiased">
 		
-			<div class="post">
+			<div class="group">
 				{
 					posts.map((post) => (
 					<a data-astro-prefetch href=`/${post.slug}/`><div class="posts group">
