@@ -12,7 +12,9 @@ export async function getStaticPaths() {
   return uniqueCategories.map((category) => {
     const filteredPosts = posts.filter((post) =>
       post.data.categories.includes(category)
-    );
+    ).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
     return {
       params: { category },
       props: { posts: filteredPosts },
