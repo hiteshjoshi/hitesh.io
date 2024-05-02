@@ -6,7 +6,7 @@
 .logo{
     @apply flex text-center items-center mt-4 p-4 space-x-2 text-gray-900 md:py-0;
     svg{
-        @apply dark:fill-gray-100 fill-black;
+        @apply fill-gray-100;
     }
 }
 
@@ -24,7 +24,7 @@
 }
 /* Post list */
 .posts {
-    @apply py-5 w-auto dark:text-gray-100;
+    @apply py-5 w-auto text-gray-100;
 }
 
 
@@ -34,12 +34,12 @@
 }
 
 .date {
-    @apply text-sm text-gray-500 dark:text-gray-300 text-right;
+    @apply text-sm text-gray-300 text-right;
 }
 
 
 .desc {
-    @apply text-gray-900 dark:text-gray-600 transition-all;
+    @apply text-gray-600 transition-all;
 }
 
 .category {
@@ -56,7 +56,7 @@
 /* Single post */
 .post {
     article{
-        @apply prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert mx-auto;
+        @apply prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl prose-invert mx-auto;
     }
 }
 
@@ -70,13 +70,13 @@
 }
 
 .name {
-    @apply text-xl font-semibold text-black dark:text-white;
+    @apply text-xl font-semibold text-white;
 }
 
 .comments {
-    @apply text-gray-500 dark:text-neutral-400;
+    @apply text-neutral-400;
     a {
-        @apply font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-100 dark:hover:text-blue-400;
+        @apply font-semibold  text-blue-100 hover:text-blue-400;
     }
 }
 
@@ -90,9 +90,9 @@
         @apply py-14 space-y-6 w-96 text-justify content-center mx-auto;
     }
     .heading{
-        @apply text-4xl font-bold pb-10 dark:text-white;
+        @apply text-4xl font-bold pb-10 text-white;
     }
     .animate_404{
-        @apply text-4xl font-bold dark:text-neutral-300;
+        @apply text-4xl font-bold text-neutral-300;
     }
 }
