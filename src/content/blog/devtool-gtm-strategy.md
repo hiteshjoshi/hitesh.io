@@ -1,7 +1,7 @@
 ---
 title: 'DevTools GTM Strategy (zero to one)'
-socialTitle: "Developer tools cater to a vast and diverse user base, making it challenging to confine them to a specific vertical or business type."
-description: "Developer tools cater to a vast and diverse user base, making it challenging to confine them to a specific vertical or business type. The Go-To-Market (GTM) strategy for developer tools is often compared to that of traditional SaaS"
+socialTitle: "The Go-To-Market (GTM) strategy for developer tools is often compared to that of traditional SaaS"
+description: "Developer tools cater to a vast and diverse user base, making it challenging to confine them to a specific vertical or business type. "
 pubDate: 2024-05-09T13:48:49.441Z
 updatedDate: 2024-05-09T13:48:49.441Z
 isDraft: false
