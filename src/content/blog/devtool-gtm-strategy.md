@@ -12,14 +12,21 @@ If you do not know what developer tools are, skip this post.
 
 **Why We Are Discussing DevTools GTM Today**
 
-After numerous discussions with VCs, angels, founders, and mentors, I’ve noticed a common misconception: the Go-To-Market (GTM) strategy for developer tools is often compared to that of traditional SaaS. This is a flawed approach. Developer tools cater to a vast and diverse user base, making it challenging to confine them to a specific vertical or business type.
-Open-source is a popular route for many in this space. Having worked with open-source developer tool companies, I’ve experienced its benefits and drawbacks firsthand. While open-source can drive strong developer adoption and provide valuable feedback, it often blurs the line between building a free tool and a viable business. Therefore, it's perfectly acceptable to remain closed-source unless a clear and meaningful strategy is identified.
+After numerous discussions with VCs, angels, founders, and mentors, I’ve noticed a common misconception: the Go-To-Market (GTM) strategy for developer tools is often compared to that of traditional SaaS.
+
+This is a flawed approach. Developer tools cater to a vast and diverse user base, making it challenging to confine them to a specific vertical or business type.
+
+Open-source is a popular route for many in this space. Having worked with open-source developer tool companies, I’ve experienced its benefits and drawbacks firsthand. While open-source can drive strong developer adoption and provide valuable feedback, it often blurs the line between building a free tool and a viable business. 
+
+Therefore, it's perfectly acceptable to remain closed-source unless a clear and meaningful strategy is identified.
 
 **Core Principles of Developer Tools:**
 - **Efficiency & Productivity:** They must save money and engineers’ time.
 - **System Design:** They should encourage good system design by default.
 
-Failing at the first principle means no adoption, and missing the second leads to poor retention. The scale and success of developer tools are closely tied to the amount of time and money they save. With these basics established, let’s dive deeper into the GTM strategy for developer tools.
+Failing at the first principle means no adoption, and missing the second leads to poor retention. The scale and success of developer tools are closely tied to the amount of time and money they save.
+
+*With these basics established, let’s dive deeper*
 
 **Key Considerations for DevTools GTM:**
 
