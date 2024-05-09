@@ -62,7 +62,11 @@ Content is the most crucial way to grow a developer tool. Blog posts, YouTube vi
 * Highly focused tutorials that don’t provide a clear output.
 
 ## Support Community
-Encourage your super users to train and help others onboard. At Appsmith’s Discord, many power users guide first-time users and become your ambassadors. Actively building a community of engineers around your developer tool is essential for growth. Engineers help each other because they understand the frustration of being stuck and value new connections, friendships, and potential future collaborations. It’s a win-win for everyone.
+Encourage your super users to train and help others onboard. 
+
+At [Appsmith’s](https://appsmith.com) Discord, many power users guide first-time users and become your ambassadors. 
+
+Actively building a community of engineers around your developer tool is essential for growth. Engineers help each other because they understand the frustration of being stuck and value new connections, friendships, and potential future collaborations. It’s a win-win for everyone.
 
 
 
