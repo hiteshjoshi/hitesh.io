@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html,body{
+    @apply bg-black;
+}
 
 .logo{
     @apply flex text-center items-center mt-4 p-4 space-x-2 text-gray-900 md:py-0;
