@@ -23,7 +23,8 @@ For the sake of simplicity, let say you started supporting three CRMs.
 - Hubspot
 - Salesforce
 - Pipedrive
-  And now users can connect their hubspot, salesforce or pipedrive accounts into your saas to sync the data.
+
+And now users can connect their hubspot, salesforce or pipedrive accounts into your saas to sync the data.
 
 ### So far so good. Let’s deep dive.
 
