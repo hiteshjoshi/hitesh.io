@@ -9,7 +9,7 @@ categories: ["unified", "integration"]
 ---
 
 Unified APIs are getting a lot of attention in the market. And they should be, because they manage to solve a problem that was never there. Haha..
-You see, unified api companies convinced you that speed is your biggest assets and quality and iterations can go for a toss(or as we say in Hindi, गया टेल लेने)
+You see, unified api companies convinced you that speed is your biggest assets and quality and iterations can go for a toss(or as we say in Hindi, गया तेल लेने)
 
 In retrospect, unified APIs are like Redux for React. Most companies don’t actually need them, but they're still sold on the idea.
 
