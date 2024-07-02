@@ -1,5 +1,5 @@
 ---
-title: "Why you might not need unified APIs?"
+title: "You might not need unified APIs?"
 socialTitle: "Unified APIs are marketed as a solution for various integration problems, but are they always necessary?"
 description: "Unified APIs promise to streamline integrations, but they might not be the best fit for every business scenario. This blog explores why a tailored approach may sometimes be better."
 pubDate: 2024-06-27T13:48:49.441Z
