@@ -17,15 +17,17 @@ const posts = (
         posts.map((post) => (
           <a data-astro-prefetch href={`/${post.slug}/`}>
             <div class="posts group">
-              <div>
-                <h2 class="heading font-heading">{post.data.title}</h2>
-                <span class="date">
-                  <FormattedDate
-                    date={post.data.updatedDate || post.data.pubDate}
-                  />
-                </span>
-                <p class="desc">{post.data.description}</p>
+              <div class="flex items-center">
+                <div class="line w-4 h-1 bg-black" />
+                <h2 class="heading font-heading pl-4">{post.data.title}</h2>
               </div>
+
+              <span class="date">
+                <FormattedDate
+                  date={post.data.updatedDate || post.data.pubDate}
+                />
+              </span>
+              <p class="desc">{post.data.description}</p>
             </div>
           </a>
         ))
