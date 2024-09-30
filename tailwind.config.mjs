@@ -4,20 +4,12 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
-			animation: {
-				text: 'text 5s ease infinite',
-			},
-			keyframes: {
-				text: {
-					'0%, 100%': {
-						'background-size': '200% 200%',
-						'background-position': 'left center',
-					},
-					'50%': {
-						'background-size': '200% 200%',
-						'background-position': 'right center',
-					},
-				},
+			fontFamily: {
+				// Open Sans with system fallbacks
+				sans: ['Open Sans', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+
+				// Tektur with blocky, bold system fallbacks
+				heading: ['Tektur', 'Arial Black', 'Roboto Condensed', 'Segoe UI', 'sans-serif'],
 			},
 		},
 	},
