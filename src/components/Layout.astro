@@ -1,110 +1,98 @@
 ---
-import Logo from "./Logo.astro";
-import Navigation from "./Navigation.astro";
-const isHomePage = Astro.url.pathname.split("/")[1] === "";
-
-interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
+export interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const {
-  title = SITE_TITLE,
-  description = SITE_DESCRIPTION,
-  image = "/logo.png",
+    title = "Hitesh Joshi",
+    description = "Thoughts on technology, startups, and the art of building things",
+    image = "/og-image.png",
 } = Astro.props;
-
-import "../styles/tailwind.css";
 ---
 
 <!doctype html>
-<html lang="en" x-init="init()">
-  <head>
-    <meta charset="UTF-8" /><meta
-      http-equiv="Content-Type"
-      content="text/html; charset=utf-8"
-    /><meta name="viewport" content="width=device-width,initial-scale=1" /><link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png"
-    /><link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32x32.png"
-    /><link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/favicon-16x16.png"
-    /><link rel="manifest" href="/site.webmanifest" /><link
-      rel="canonical"
-      href={canonicalURL}
-    /><title>{title}</title>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
 
-    <meta name="title" content={title} /><meta
-      name="description"
-      content={description}
-    /><meta property="og:type" content="website" /><meta
-      property="og:url"
-      content={Astro.url}
-    /><meta property="og:title" content={title} /><meta
-      property="og:description"
-      content={description}
-    /><meta property="og:image" content={new URL(image, Astro.url)} /><meta
-      name="twitter:card"
-      content="summary_large_image"
-    /><meta name="twitter:site" content="@hiteshjoshi" /><meta
-      name="twitter:creator"
-      content="@hiteshjoshi"
-    /><meta name="twitter:url" content={Astro.url} /><meta
-      name="twitter:title"
-      content={title}
-    /><meta name="twitter:description" content={description} /><meta
-      name="twitter:image"
-      content={new URL(image, Astro.url)}
-    />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={title}
-      href={`${Astro.site}rss.xml`}
-    />
+        <!-- Favicon -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+        <!-- SEO -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
 
-  <body class="text-gray-100 antialiased">
-    <div class="min-h-screen">
-      {
-        isHomePage ? (
-          <div class="py-10 flex items-center justify-center">
-            <Logo />
-          </div>
-        ) : null
-      }
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
 
-      <div class="max-w-screen-xl mx-auto p-5 sm:p-8 md:p-12 relative">
-        <slot />
-      </div>
-      <Navigation />
-    </div>
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"
-    ></script>
-  </body>
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
+        <meta name="twitter:creator" content="@hiteshjoshi" />
+
+        <!-- RSS -->
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={title}
+            href={`${Astro.site}rss.xml`}
+        />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@300;400&display=swap"
+            rel="stylesheet"
+        />
+
+        <script is:inline>
+            // Check for saved theme preference or default to 'light'
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "dark") {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+            window.localStorage.setItem("theme", theme);
+        </script>
+    </head>
+    <body
+        class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+    >
+        <div class="min-h-screen">
+            <slot />
+        </div>
+    </body>
 </html>

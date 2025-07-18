@@ -1,0 +1,109 @@
+---
+import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/tailwind.css";
+---
+
+<Layout title="About | Hitesh Joshi" description="Learn more about Hitesh Joshi, founder and technology enthusiast.">
+    <Header />
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <article class="prose prose-lg dark:prose-dark max-w-none">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+                About Me
+            </h1>
+
+            <div class="text-lg text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+                <p>
+                    Hey there! I'm Hitesh Joshi, a founder and technology enthusiast passionate about building
+                    things that matter. Currently, I'm the CEO of Ploton Labs, Inc., where we're working on
+                    exciting projects at the intersection of technology and human experience.
+                </p>
+
+                <p>
+                    My journey in tech has been a fascinating ride through various domains - from deep diving
+                    into system architecture to exploring the latest in AI and machine learning. I believe in
+                    the power of technology to solve real-world problems and create meaningful impact.
+                </p>
+
+                <h2 class="text-2xl font-semibold mt-12 mb-4 text-gray-900 dark:text-gray-100">
+                    What I Do
+                </h2>
+
+                <p>
+                    I wear many hats, but at the core, I'm a builder. Whether it's architecting scalable
+                    systems, leading product development, or mentoring the next generation of developers,
+                    I'm always excited about creating something new.
+                </p>
+
+                <h2 class="text-2xl font-semibold mt-12 mb-4 text-gray-900 dark:text-gray-100">
+                    Why This Blog?
+                </h2>
+
+                <p>
+                    This blog is my digital garden - a place where I share thoughts, learnings, and
+                    experiences from my journey. Topics range from technical deep-dives and startup
+                    insights to philosophical musings about technology's role in our lives.
+                </p>
+
+                <p>
+                    I believe in learning in public and sharing knowledge openly. Every post here is
+                    either something I've learned, something I'm exploring, or something I think might
+                    help others on their journey.
+                </p>
+
+                <h2 class="text-2xl font-semibold mt-12 mb-4 text-gray-900 dark:text-gray-100">
+                    Let's Connect
+                </h2>
+
+                <p>
+                    I'm always excited to connect with fellow builders, thinkers, and curious minds.
+                    Feel free to reach out:
+                </p>
+
+                <div class="flex flex-col gap-3 mt-6">
+                    <a
+                        href="https://twitter.com/hiteshjoshi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                        </svg>
+                        Follow me on Twitter
+                    </a>
+
+                    <a
+                        href="https://bento.me/joshi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                        </svg>
+                        View all my links
+                    </a>
+
+                    <a
+                        href="https://cal.com/ploton"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        Schedule a call
+                    </a>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <Footer />
+                </div>
+            </div>
+        </article>
+    </main>
+</Layout>

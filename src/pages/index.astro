@@ -1,37 +1,135 @@
 ---
 import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
+import "../styles/tailwind.css";
+
 const posts = (
-  await getCollection("blog", ({ data }) => {
-    if (data.isDraft !== true || import.meta.env.VERCEL_ENV === "development")
-      return data;
-  })
+    await getCollection("blog", ({ data }) => {
+        if (
+            data.isDraft !== true ||
+            import.meta.env.VERCEL_ENV === "development"
+        )
+            return data;
+    })
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout>
-  <div class="main antialiased">
-    <div class="posts_group">
-      {
-        posts.map((post) => (
-          <a data-astro-prefetch href={`/${post.slug}/`}>
-            <div class="posts group">
-              <div class="flex items-center">
-                <div class="line w-4 h-1 bg-black" />
-                <h2 class="heading font-heading pl-4">{post.data.title}</h2>
-              </div>
+    <Header />
 
-              <span class="date">
-                <FormattedDate
-                  date={post.data.updatedDate || post.data.pubDate}
-                />
-              </span>
-              <p class="desc">{post.data.description}</p>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Hero Section -->
+        <section class="mb-20">
+            <h1
+                class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-gray-100"
+            >
+                Thoughts on technology, startups, and building things
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                Welcome to my digital garden where I share insights from my
+                journey as a founder, technical explorations, and random musings
+                about the intersection of technology and life.
+            </p>
+        </section>
+
+        <!-- Posts Section -->
+        <section>
+            <h2
+                class="text-2xl font-semibold mb-10 text-gray-900 dark:text-gray-100"
+            >
+                Recent Posts
+            </h2>
+
+            <div class="space-y-8">
+                {
+                    posts.map((post, index) => (
+                        <article
+                            class="post-item group"
+                            style={`animation-delay: ${index * 100}ms`}
+                        >
+                            <a
+                                href={`/${post.slug}/`}
+                                class="block py-6 -mx-4 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                            >
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                                        {post.data.title}
+                                    </h3>
+                                    <time
+                                        class="text-sm text-gray-500 dark:text-gray-500 mt-1 sm:mt-0"
+                                        datetime={post.data.pubDate.toISOString()}
+                                    >
+                                        <FormattedDate
+                                            date={
+                                                post.data.updatedDate ||
+                                                post.data.pubDate
+                                            }
+                                        />
+                                    </time>
+                                </div>
+
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    {post.data.description}
+                                </p>
+
+                                {post.data.categories &&
+                                    post.data.categories.length > 0 && (
+                                        <div class="mt-3 flex flex-wrap gap-2">
+                                            {post.data.categories.map(
+                                                (category) => (
+                                                    <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded">
+                                                        {category}
+                                                    </span>
+                                                ),
+                                            )}
+                                        </div>
+                                    )}
+                            </a>
+                        </article>
+                    ))
+                }
             </div>
-          </a>
-        ))
-      }
-    </div>
-  </div>
+        </section>
+
+        <!-- Footer -->
+        <footer
+            class="mt-20 pt-10 border-t border-gray-200 dark:border-gray-800"
+        >
+            <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+            >
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    © {new Date().getFullYear()} Hitesh Joshi. All rights reserved.
+                </p>
+                <div class="flex gap-4 mt-4 sm:mt-0">
+                    <a
+                        href="https://twitter.com/hiteshjoshi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        Twitter
+                    </a>
+                    <a
+                        href="https://github.com/hiteshjoshi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        GitHub
+                    </a>
+                    <a
+                        href="https://bento.me/joshi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    >
+                        About
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
 </Layout>

@@ -1,74 +1,131 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Logo from "../components/Logo.astro";
-import Footer from "../components/Footer.astro";
+import "../styles/tailwind.css";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
+
+// Calculate reading time
+const words = post.body.split(/\s+/g).length;
+const readingTime = Math.ceil(words / 200);
 ---
 
 <Layout
-  description={post.data.description}
-  title={post.data.socialTitle || post.data.title}
-  image={post.data.hero?.src}
+    title={`${post.data.title} | Hitesh Joshi`}
+    description={post.data.description}
+    image={post.data.hero?.src}
 >
-  <Logo />
-  <div class="post">
-    <article>
-      <h2 class="font-heading">{post.data.title}</h2>
+    <Header />
 
-      <span class="date"
-        ><FormattedDate
-          date={post.data.updatedDate || post.data.pubDate}
-        /></span
-      >
-      <Content />
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Article Header -->
+        <header class="mb-12">
+            <h1
+                class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-gray-100 leading-tight"
+            >
+                {post.data.title}
+            </h1>
 
-      <p class="category">
-        {
-          post.data.categories.map((item) => (
-            <a data-astro-prefetch href={`/category/${item}`}>
-              #{item}
-            </a>
-          ))
-        }
-      </p>
-    </article>
+            <div
+                class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400"
+            >
+                <time datetime={post.data.pubDate.toISOString()}>
+                    <FormattedDate
+                        date={post.data.updatedDate || post.data.pubDate}
+                    />
+                </time>
+                <span>·</span>
+                <span>{readingTime} min read</span>
+                {
+                    post.data.categories && post.data.categories.length > 0 && (
+                        <>
+                            <span>·</span>
+                            <div class="flex flex-wrap gap-2">
+                                {post.data.categories.map((category) => (
+                                    <a
+                                        href={`/category/${category}`}
+                                        class="hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                                    >
+                                        #{category}
+                                    </a>
+                                ))}
+                            </div>
+                        </>
+                    )
+                }
+            </div>
+        </header>
 
-    <!-- ========== FOOTER ========== -->
-    <div class="footer">
-      <!-- Grid -->
-      <div>
-        <div>
-          --<p class="name" aria-label="Hitesh">Hitesh Joshi</p>
-        </div>
-        <!-- End Col -->
+        <!-- Article Content -->
+        <article
+            class="prose prose-lg dark:prose-dark max-w-none prose-headings:font-semibold prose-a:no-underline prose-a:border-b prose-a:border-gray-300 dark:prose-a:border-gray-700 hover:prose-a:border-gray-500 dark:hover:prose-a:border-gray-500 prose-a:transition-colors prose-img:rounded-lg prose-pre:bg-gray-900 dark:prose-pre:bg-gray-950"
+        >
+            <Content />
+        </article>
 
-        <p class="comments">
-          Got some comments? <a
-            href={"https://twitter.com/intent/tweet?text=@hiteshjoshi%20" +
-              Astro.url}
-            target="_blank">Shoot a tweet</a
-          >
-        </p>
+        <!-- Article Footer -->
+        <footer
+            class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800"
+        >
+            <!-- Author Bio -->
+            <div class="mb-8">
+                <p class="text-gray-600 dark:text-gray-400 italic">
+                    Thanks for reading! If you found this helpful, feel free to
+                    share it.
+                </p>
+            </div>
 
-        <!-- Social Brands -->
-        <Footer />
-        <!-- End Social Brands -->
-      </div>
-      <!-- End Grid -->
-    </div>
-    <!-- ========== END FOOTER ========== -->
-  </div>
+            <!-- Share Links -->
+            <div class="flex flex-wrap gap-4 mb-12">
+                <a
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(Astro.url.href)}&via=hiteshjoshi`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                        ></path>
+                    </svg>
+                    Share on Twitter
+                </a>
+
+                <a
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                        ></path>
+                    </svg>
+                    Share on LinkedIn
+                </a>
+            </div>
+        </footer>
+    </main>
 </Layout>

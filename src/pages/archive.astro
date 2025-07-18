@@ -1,0 +1,109 @@
+---
+import Layout from "../components/Layout.astro";
+import Header from "../components/Header.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+import "../styles/tailwind.css";
+
+const posts = (
+    await getCollection("blog", ({ data }) => {
+        if (
+            data.isDraft !== true ||
+            import.meta.env.VERCEL_ENV === "development"
+        )
+            return data;
+    })
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Group posts by year
+const postsByYear = posts.reduce((acc, post) => {
+    const year = new Date(post.data.pubDate).getFullYear();
+    if (!acc[year]) {
+        acc[year] = [];
+    }
+    acc[year].push(post);
+    return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear)
+    .map(Number)
+    .sort((a, b) => b - a);
+---
+
+<Layout title="Archive | Hitesh Joshi" description="All posts organized by year">
+    <Header />
+
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <!-- Page Header -->
+        <section class="mb-12">
+            <h1
+                class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100"
+            >
+                Archive
+            </h1>
+            <p class="text-gray-600 dark:text-gray-400">
+                All {posts.length} posts organized by year
+            </p>
+        </section>
+
+        <!-- Posts by Year -->
+        <section class="space-y-12">
+            {
+                years.map((year) => (
+                    <div>
+                        <h2 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
+                            {year}
+                        </h2>
+                        <div class="space-y-4">
+                            {postsByYear[year].map((post) => (
+                                <article class="group">
+                                    <a
+                                        href={`/${post.slug}/`}
+                                        class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 py-3 -mx-3 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                    >
+                                        <time
+                                            class="text-sm text-gray-500 dark:text-gray-500 shrink-0"
+                                            datetime={post.data.pubDate.toISOString()}
+                                        >
+                                            <FormattedDate
+                                                date={
+                                                    post.data.updatedDate ||
+                                                    post.data.pubDate
+                                                }
+                                            />
+                                        </time>
+                                        <h3 class="text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                                            {post.data.title}
+                                        </h3>
+                                    </a>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </section>
+
+        <!-- Back to home -->
+        <div class="mt-16">
+            <a
+                href="/"
+                class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to home
+            </a>
+        </div>
+    </main>
+</Layout>

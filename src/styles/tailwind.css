@@ -2,100 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body{
-    @apply bg-white;
-}
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
 
-.logo{
-    @apply flex text-center items-center mt-4 p-4 space-x-2 text-gray-900 md:py-0;
-    svg{
-        @apply fill-black;
+    body {
+        @apply antialiased;
+    }
+
+    /* Selection colors */
+    ::selection {
+        @apply bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900;
+    }
+
+    /* Focus styles */
+    :focus {
+        @apply outline-none ring-2 ring-gray-400 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+    }
+
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-gray-800;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-500 dark:bg-gray-500;
     }
 }
 
-/* Main layout */
-.main {
-    @apply px-4 py-10 mx-auto max-w-3xl sm:px-6 sm:py-12 lg:max-w-4xl lg:py-16 lg:px-8 xl:max-w-6xl;
-}
+@layer components {
+    /* Post list animations */
+    .post-item {
+        @apply opacity-0 animate-fade-in;
+    }
 
-.hover-gradient-text {
-    @apply group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:via-purple-500 group-hover:to-orange-500 group-hover:bg-clip-text group-hover:text-transparent ;
-}
+    /* Hover effects for links */
+    .link-underline {
+        @apply relative;
+    }
 
-.posts_group{
-    @apply mx-auto md:w-1/2;
-}
-/* Post list */
-.posts {
-    @apply py-5 w-auto text-gray-900;
-}
+    .link-underline::after {
+        content: "";
+        @apply absolute bottom-0 left-0 w-full h-px bg-current transform scale-x-0 transition-transform duration-300 origin-left;
+    }
 
-
-/* Typography */
-.heading {
-    @apply text-3xl font-semibold text-left mb-0;
-}
-
-.date {
-    @apply text-sm text-gray-400 text-right;
-}
-
-
-.desc {
-    @apply text-gray-600 transition-all;
-}
-
-.category {
-    @apply text-sm pt-5 px-0;
-    a{
-        @apply mr-5;
+    .link-underline:hover::after {
+        @apply scale-x-100;
     }
 }
 
-.category span {
-    @apply px-2;
-}
-
-/* Single post */
-.post {
-    article{
-        @apply prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl mx-auto;
+@layer utilities {
+    /* Custom animations */
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-}
 
-.animate_text{
-    @apply  bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent;
-}
-
-/* Footer and miscellaneous */
-.footer {
-    @apply mt-20 mb-5 ;
-}
-
-.name {
-    @apply text-xl font-semibold text-black;
-}
-
-.comments {
-    @apply text-gray-600;
-    a {
-        @apply font-semibold  text-blue-500 hover:text-black hover:underline;
+    .animate-fade-in {
+        animation: fade-in 0.5s ease-out forwards;
     }
-}
 
+    /* Stagger animation delays */
+    .animation-delay-100 {
+        animation-delay: 100ms;
+    }
 
-.not_found {
-    @apply container mx-auto px-4;
-    .logo{
-        @apply py-20 flex items-center justify-center;
+    .animation-delay-200 {
+        animation-delay: 200ms;
     }
-    .box{
-        @apply py-14 space-y-6 w-96 text-justify content-center mx-auto;
+
+    .animation-delay-300 {
+        animation-delay: 300ms;
     }
-    .heading{
-        @apply text-4xl font-bold pb-10 text-white;
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
     }
-    .animate_404{
-        @apply text-4xl font-bold text-neutral-300;
+
+    .animation-delay-500 {
+        animation-delay: 500ms;
     }
 }
