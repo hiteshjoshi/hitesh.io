@@ -21,10 +21,10 @@
 
     /* Typography */
     --font-sans:
-        "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, sans-serif;
+        Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
     --font-serif:
-        "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif;
+        Merriweather, Georgia, Cambria, "Times New Roman", Times, serif;
 
     /* Spacing */
     --space-1: 0.25rem;
@@ -187,17 +187,20 @@ a {
     height: 1.25rem;
 }
 
-.theme-toggle-light,
-.theme-toggle-dark {
+.theme-toggle-light {
     display: block;
+}
+
+.theme-toggle-dark {
+    display: none;
 }
 
 .dark .theme-toggle-light {
     display: none;
 }
 
-:not(.dark) .theme-toggle-dark {
-    display: none;
+.dark .theme-toggle-dark {
+    display: block;
 }
 
 /* Main Content */
