@@ -3,7 +3,7 @@
 
 export const SITE_TITLE = "Hitesh Joshi";
 export const SITE_DESCRIPTION =
-  "Founder of Ploton.ai, building AI agents and workflow automation for enterprise teams. Sharing insights on AI, startups, and the future of work.";
+  "Hitesh Joshi, founder of Ploton.ai, shares insights on building AI agents for enterprise teams, startup lessons, and the future of work. Learn from real-world experiences in AI automation, technical deep-dives, and strategies for scaling technology products.";
 export const TWITTER_HANDLE = "@hiteshjoshi";
 export const GITHUB_URL = "https://github.com/hiteshjoshi";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/hiteshjoshi";
