@@ -3,21 +3,16 @@ const currentPath = Astro.url.pathname;
 const isHome = currentPath === "/";
 ---
 
-<header class="border-b border-gray-200 dark:border-gray-800">
-    <nav class="max-w-4xl mx-auto px-6 py-4">
-        <div class="flex items-center justify-between">
+<header class="header">
+    <nav class="container">
+        <div class="header-nav">
             <!-- Logo/Home link -->
-            <a
-                href="/"
-                class="text-xl font-semibold hover:opacity-80 transition-opacity"
-            >
+            <a href="/" class="header-logo">
                 {
                     isHome ? (
-                        <span class="text-gray-900 dark:text-gray-100">
-                            Hitesh Joshi
-                        </span>
+                        <span>Hitesh Joshi</span>
                     ) : (
-                        <span class="text-gray-500 dark:text-gray-400">
+                        <span style="color: var(--color-text-secondary)">
                             ← Home
                         </span>
                     )
@@ -25,36 +20,20 @@ const isHome = currentPath === "/";
             </a>
 
             <!-- Navigation items -->
-            <div class="flex items-center gap-6">
-                <a
-                    href="/archive"
-                    class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                >
-                    Archive
-                </a>
-                <a
-                    href="/about"
-                    class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                >
-                    About
-                </a>
-                <a
-                    href="/rss.xml"
-                    target="_blank"
-                    class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                >
-                    RSS
-                </a>
+            <div class="header-links">
+                <a href="/archive" class="header-link"> Archive </a>
+                <a href="/about" class="header-link"> About </a>
+                <a href="/rss.xml" target="_blank" class="header-link"> RSS </a>
 
                 <!-- Theme toggle -->
                 <button
                     id="theme-toggle"
                     type="button"
-                    class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    class="theme-toggle"
                     aria-label="Toggle dark mode"
                 >
                     <svg
-                        class="w-5 h-5 hidden dark:block"
+                        class="theme-toggle-light"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
@@ -64,7 +43,7 @@ const isHome = currentPath === "/";
                             clip-rule="evenodd"></path>
                     </svg>
                     <svg
-                        class="w-5 h-5 block dark:hidden"
+                        class="theme-toggle-dark"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >

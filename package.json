@@ -13,20 +13,13 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
-    "autoprefixer": "^10.4.19",
-    "caniuse-lite": "",
-    "dateformat": "^5.0.3",
-    "postcss-import": "^16.1.0",
-    "tailwindcss": "^3.3.5"
+    "dateformat": "^5.0.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.2",
-    "@tailwindcss/typography": "^0.5.10",
     "@types/dateformat": "^5.0.2",
     "@types/feather-icons": "^4.29.4",
     "astro": "^3.6.0",

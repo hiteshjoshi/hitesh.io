@@ -3,7 +3,6 @@ import Layout from "../components/Layout.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
-import "../styles/tailwind.css";
 
 const posts = (
     await getCollection("blog", ({ data }) => {
@@ -16,67 +15,64 @@ const posts = (
 ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 // Group posts by year
-const postsByYear = posts.reduce((acc, post) => {
-    const year = new Date(post.data.pubDate).getFullYear();
-    if (!acc[year]) {
-        acc[year] = [];
-    }
-    acc[year].push(post);
-    return acc;
-}, {} as Record<number, typeof posts>);
+const postsByYear = posts.reduce(
+    (acc, post) => {
+        const year = new Date(post.data.pubDate).getFullYear();
+        if (!acc[year]) {
+            acc[year] = [];
+        }
+        acc[year].push(post);
+        return acc;
+    },
+    {} as Record<number, typeof posts>,
+);
 
 const years = Object.keys(postsByYear)
     .map(Number)
     .sort((a, b) => b - a);
 ---
 
-<Layout title="Archive | Hitesh Joshi" description="All posts organized by year">
+<Layout
+    title="Archive | Hitesh Joshi"
+    description="All posts organized by year"
+>
     <Header />
 
-    <main class="max-w-4xl mx-auto px-6 py-16">
+    <main class="container main">
         <!-- Page Header -->
-        <section class="mb-12">
-            <h1
-                class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100"
-            >
-                Archive
-            </h1>
-            <p class="text-gray-600 dark:text-gray-400">
+        <section class="hero">
+            <h1 class="hero-title">Archive</h1>
+            <p style="color: var(--color-text-secondary);">
                 All {posts.length} posts organized by year
             </p>
         </section>
 
         <!-- Posts by Year -->
-        <section class="space-y-12">
+        <section
+            style="display: flex; flex-direction: column; gap: var(--space-12);"
+        >
             {
                 years.map((year) => (
-                    <div>
-                        <h2 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">
-                            {year}
-                        </h2>
-                        <div class="space-y-4">
+                    <div class="archive-year">
+                        <h2 class="archive-year-title">{year}</h2>
+                        <div class="archive-posts">
                             {postsByYear[year].map((post) => (
-                                <article class="group">
-                                    <a
-                                        href={`/${post.slug}/`}
-                                        class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 py-3 -mx-3 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                <a href={`/${post.slug}/`} class="archive-post">
+                                    <time
+                                        class="archive-post-date"
+                                        datetime={post.data.pubDate.toISOString()}
                                     >
-                                        <time
-                                            class="text-sm text-gray-500 dark:text-gray-500 shrink-0"
-                                            datetime={post.data.pubDate.toISOString()}
-                                        >
-                                            <FormattedDate
-                                                date={
-                                                    post.data.updatedDate ||
-                                                    post.data.pubDate
-                                                }
-                                            />
-                                        </time>
-                                        <h3 class="text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                                            {post.data.title}
-                                        </h3>
-                                    </a>
-                                </article>
+                                        <FormattedDate
+                                            date={
+                                                post.data.updatedDate ||
+                                                post.data.pubDate
+                                            }
+                                        />
+                                    </time>
+                                    <h3 class="archive-post-title">
+                                        {post.data.title}
+                                    </h3>
+                                </a>
                             ))}
                         </div>
                     </div>
@@ -85,13 +81,11 @@ const years = Object.keys(postsByYear)
         </section>
 
         <!-- Back to home -->
-        <div class="mt-16">
-            <a
-                href="/"
-                class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-            >
+        <div style="margin-top: var(--space-16);">
+            <a href="/" class="back-link">
                 <svg
-                    class="w-4 h-4"
+                    width="16"
+                    height="16"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
