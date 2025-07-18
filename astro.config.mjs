@@ -4,6 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
 
 export default defineConfig({
-  site: "https://hitesh.io",
+  site: "https://hite.sh",
   integrations: [mdx(), sitemap(), compress()],
 });
