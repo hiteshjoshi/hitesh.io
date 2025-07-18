@@ -155,28 +155,53 @@ const posts = (
 <style>
     /* Hero with image styles */
     .hero-with-image {
-        margin-bottom: var(--space-20);
+        margin-bottom: var(--space-10);
+    }
+
+    @media (min-width: 640px) {
+        .hero-with-image {
+            margin-bottom: var(--space-20);
+        }
     }
 
     .hero-image-container {
-        margin-bottom: var(--space-8);
+        margin-bottom: var(--space-6);
         overflow: hidden;
-        border-radius: 1rem;
+        border-radius: 0.75rem;
         box-shadow:
             0 4px 6px -1px rgb(0 0 0 / 0.1),
             0 2px 4px -2px rgb(0 0 0 / 0.1);
     }
 
+    @media (min-width: 640px) {
+        .hero-image-container {
+            margin-bottom: var(--space-8);
+            border-radius: 1rem;
+        }
+    }
+
     .hero-image {
         width: 100%;
         height: auto;
-        max-height: 400px;
+        max-height: 250px;
         object-fit: cover;
         display: block;
     }
 
+    @media (min-width: 640px) {
+        .hero-image {
+            max-height: 400px;
+        }
+    }
+
     .hero-content {
-        margin-top: var(--space-10);
+        margin-top: var(--space-6);
+    }
+
+    @media (min-width: 640px) {
+        .hero-content {
+            margin-top: var(--space-10);
+        }
     }
 
     .hero-link {
@@ -191,11 +216,5 @@ const posts = (
 
     .hero-link:hover {
         text-decoration-color: var(--color-text-secondary);
-    }
-
-    @media (max-width: 640px) {
-        .hero-image {
-            max-height: 300px;
-        }
     }
 </style>
